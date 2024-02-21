@@ -35,6 +35,7 @@ func main() {
 	view.POST("/checkout-book/:id", bookView.Checkout)
 	view.POST("/return-book/:id", myBookView.Return)
 	server.POST("/login", userView.Login)
+	server.POST("/logout", userView.Logout)
 	server.GET("/login", userView.Get)
 	server.Run("localhost:8082")
 }

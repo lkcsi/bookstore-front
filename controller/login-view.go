@@ -11,6 +11,7 @@ import (
 type LoginView interface {
 	Get(context *gin.Context)
 	Login(context *gin.Context)
+	Logout(context *gin.Context)
 }
 
 type loginView struct {
@@ -39,4 +40,9 @@ func (l *loginView) Login(context *gin.Context) {
 	}
 	context.SetCookie("username", requestUser.Username, (10 * 60), "/", "localhost", false, true)
 	context.Writer.Header().Add("HX-Redirect", "/books")
+}
+
+func (l *loginView) Logout(context *gin.Context) {
+	context.SetCookie("username", "deleted", -1, "/", "localhost", false, true)
+	context.Writer.Header().Add("HX-Redirect", "/")
 }
