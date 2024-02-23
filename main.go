@@ -38,5 +38,5 @@ func main() {
 	server.POST("/login", userView.Login)
 	server.POST("/logout", userView.Logout)
 	server.GET("/login", userView.Get)
-	server.Run(fmt.Sprintf("localhost:%s", os.Getenv("BOOKS_FRONT_PORT")))
+	server.Run(fmt.Sprintf("0.0.0.0:%s", os.Getenv("BOOKS_FRONT_PORT")))
 }
