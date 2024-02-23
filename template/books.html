@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row mt-4"></div>
         <div class="col">
-            <h2 class="mb-4">Book List</h2>
+            <h2 id="books-title" class="mb-4">Book List</h2>
             <table class="table table-primary">
                 <thead>
                     <tr>
@@ -16,9 +16,9 @@
                     {{ range .Books }}
                     {{ block "book-list-element" .}}
                         <tr id="book-{{ .Id }}">
-                            <td>{{ .Title }}</td>
-                            <td>{{ .Author }}</td>
-                            <td>{{ .Quantity }}</td>
+                            <td id="book-title">{{ .Title }}</td>
+                            <td id="book-author">{{ .Author }}</td>
+                            <td id="book-quantity">{{ .Quantity }}</td>
                             <td>
                                 <button class="btn btn-success" hx-target="#book-{{ .Id }}" 
                                 hx-post="/checkout-book/{{ .Id }}" hx-swap="outerHTML">
