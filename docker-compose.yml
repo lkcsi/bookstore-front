@@ -1,0 +1,14 @@
+version: '3.3'
+name: books
+services:
+  front:
+    build: .
+    environment:
+      API_KEY: ${API_KEY}
+      BOOKS_FRONT_PORT: ${BOOKS_FRONT_PORT}
+    networks:
+      - bookstore
+    ports:
+      - "${BOOKS_FRONT_PORT}:${BOOKS_FRONT_PORT}"
+networks:
+  bookstore:

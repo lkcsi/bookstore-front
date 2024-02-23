@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -37,5 +38,5 @@ func main() {
 	server.POST("/login", userView.Login)
 	server.POST("/logout", userView.Logout)
 	server.GET("/login", userView.Get)
-	server.Run("localhost:8082")
+	server.Run(fmt.Sprintf("localhost:%s", os.Getenv("BOOKS_FRONT_PORT")))
 }
